@@ -29,7 +29,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
-            "args": ["-p","C:\\Dev\\CQRSExemplo"],
+            "args": ["-p","/home/gambali/dev/dotnet/CQRSExemplo"],
             "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
             "console": "internalConsole",
             "stopAtEntry": false
@@ -40,7 +40,7 @@
             "request": "launch",
             "preLaunchTask": "build",
             "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
-            "args": ["-p","C:\\Dev\\CQRSExemplo","-f","c:\\temp\\output.txt"],
+            "args": ["-p","/home/gambali/dev/dotnet/CQRSExemplo","-f","/home/gambali/Documents/teste.txt"],
             "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
             "console": "internalConsole",
             "stopAtEntry": false
