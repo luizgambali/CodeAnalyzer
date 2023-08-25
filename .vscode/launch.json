@@ -1,0 +1,54 @@
+{
+    "version": "0.2.0",
+    "configurations": [
+        {
+            "name": ".NET Core Launch (console)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
+            "args": [],
+            "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (version)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
+            "args": ["--version"],
+            "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (project)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
+            "args": ["-p","C:\\Dev\\CQRSExemplo"],
+            "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Launch (project and output file)",
+            "type": "coreclr",
+            "request": "launch",
+            "preLaunchTask": "build",
+            "program": "${workspaceFolder}/src/CodeAnalyzer.App/bin/Debug/net7.0/CodeAnalyzer.App.dll",
+            "args": ["-p","C:\\Dev\\CQRSExemplo","-f","c:\\temp\\output.txt"],
+            "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
+            "console": "internalConsole",
+            "stopAtEntry": false
+        },
+        {
+            "name": ".NET Core Attach",
+            "type": "coreclr",
+            "request": "attach"
+        }
+    ]
+}
