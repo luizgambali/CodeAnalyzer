@@ -22,7 +22,7 @@
             "cwd": "${workspaceFolder}/src/CodeAnalyzer.App",
             "console": "internalConsole",
             "stopAtEntry": false
-        },
+        }, 
         {
             "name": ".NET Core Launch (project)",
             "type": "coreclr",
