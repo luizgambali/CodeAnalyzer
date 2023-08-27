@@ -1,5 +1,5 @@
 using CodeAnalyzer.App.Interfaces.Parser;
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.Entities;
 
 namespace CodeAnalyzer.App.Parser
 {

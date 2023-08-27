@@ -1,7 +1,7 @@
 using CodeAnalyzer.App.Interfaces.Analyzer;
 using CodeAnalyzer.App.Parser;
 using CodeAnalyzer.App.Services;
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.Entities;
 
 namespace CodeAnalyzer.App.Analyzers
 {

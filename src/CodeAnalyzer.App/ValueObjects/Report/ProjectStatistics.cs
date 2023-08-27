@@ -1,4 +1,4 @@
-namespace CodeAnalyzer.App.ValueObjects.Common
+namespace CodeAnalyzer.App.ValueObjects.Report
 {
     public class ProjectStatistics
     {

@@ -1,5 +1,5 @@
 using System.Text;
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.ValueObjects.Report;
 
 namespace CodeAnalyzer.App.Reports.GridView
 {
