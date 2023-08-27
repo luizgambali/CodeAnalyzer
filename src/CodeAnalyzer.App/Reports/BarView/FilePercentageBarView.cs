@@ -14,15 +14,16 @@ namespace CodeAnalyzer.App.Reports.BarView
             result.AppendLine("Code Files Statistics ".PadRight(maxSize + 100, '-'));
             result.AppendLine("");
 
+            var projectStatistics = data.GetProjectStatistics();
 
-            var listData = data.FileStatistics.OrderByDescending(x => x.GetPercentageOfCode(data.ProjectStatistics.TotalLinesOfCode))
-                                              .ThenByDescending(x => x.GetPercentageOfComments(data.ProjectStatistics.TotalLinesOfCode))
-                                              .ThenByDescending(x => x.GetPercentageOfEmptySpace(data.ProjectStatistics.TotalLinesOfCode)).ToList();
+            var listData = data.FileStatistics.OrderByDescending(x => x.GetPercentageOfCode(projectStatistics.TotalLinesOfCode))
+                                              .ThenByDescending(x => x.GetPercentageOfComments(projectStatistics.TotalLinesOfCode))
+                                              .ThenByDescending(x => x.GetPercentageOfEmptySpace(projectStatistics.TotalLinesOfCode)).ToList();
 
             result.AppendLine("File Name".PadRight(maxSize)  + " % Lines of Code");
 
             foreach(var item in listData)
-                result.AppendLine(item.FileName.PadRight(maxSize) + " " + GenerateBar(item.GetPercentageOfCode(data.ProjectStatistics.TotalLinesOfCode)));
+                result.AppendLine(item.FileName.PadRight(maxSize) + " " + GenerateBar(item.GetPercentageOfCode(projectStatistics.TotalLinesOfCode)));
 
             result.AppendLine("");
 

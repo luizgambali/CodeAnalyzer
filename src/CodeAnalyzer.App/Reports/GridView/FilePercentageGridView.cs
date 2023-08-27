@@ -19,15 +19,17 @@ namespace CodeAnalyzer.App.Reports.GridView
                     + " % Comment Lines | " 
                     + " % Empty Lines |");
 
-            var listData = data.FileStatistics.OrderByDescending(x => x.GetPercentageOfCode(data.ProjectStatistics.TotalLinesOfCode))
-                                              .ThenByDescending(x => x.GetPercentageOfComments(data.ProjectStatistics.TotalLinesOfCode))
-                                              .ThenByDescending(x => x.GetPercentageOfEmptySpace(data.ProjectStatistics.TotalLinesOfCode)).ToList();
+            var projectStatistics = data.GetProjectStatistics();
+
+            var listData = data.FileStatistics.OrderByDescending(x => x.GetPercentageOfCode(projectStatistics.TotalLinesOfCode))
+                                              .ThenByDescending(x => x.GetPercentageOfComments(projectStatistics.TotalLinesOfCode))
+                                              .ThenByDescending(x => x.GetPercentageOfEmptySpace(projectStatistics.TotalLinesOfCode)).ToList();
 
             foreach(var item in listData)
                 result.AppendLine(item.FileName.PadRight(maxSize) + " | " 
-                        + item.GetPercentageOfCode(data.ProjectStatistics.TotalLinesOfCode).ToString().PadLeft(14) + " % | " 
-                        + item.GetPercentageOfComments(data.ProjectStatistics.TotalLinesOfComments).ToString().PadLeft(14) + " % | " 
-                        + item.GetPercentageOfEmptySpace(data.ProjectStatistics.TotalLinesOfEmptySpace).ToString().PadLeft(12) + " % |"  );
+                        + item.GetPercentageOfCode(projectStatistics.TotalLinesOfCode).ToString().PadLeft(14) + " % | " 
+                        + item.GetPercentageOfComments(projectStatistics.TotalLinesOfComments).ToString().PadLeft(14) + " % | " 
+                        + item.GetPercentageOfEmptySpace(projectStatistics.TotalLinesOfEmptySpace).ToString().PadLeft(12) + " % |"  );
 
             result.AppendLine("");
 

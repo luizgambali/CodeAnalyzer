@@ -18,20 +18,8 @@ namespace CodeAnalyzer.App.Reports.Util
 
         public FileStatisticsResume CalculateFileStatistics()
         {
-            var projectStatistics = CalculateProjectStatistic();
-            var result = new FileStatisticsResume(listOfData, projectStatistics);
+            var result = new FileStatisticsResume(listOfData);
             return result;
-        }
-
-        private ProjectStatistics CalculateProjectStatistic()
-        {            
-            var totalLines = listOfData.Sum(x => x.GetTotalLinesOfFile());
-            var totalLinesOfEmptySpace = listOfData.Sum(x => x.TotalLinesOfEmptySpace);
-            var totalLinesOfComments = listOfData.Sum(x => x.TotalLinesOfComments);
-            var totalLinesOfCode = listOfData.Sum(x => x.TotalLinesOfCode);
-            var maxLineLength = listOfData.Max(x => x.MaxLineLength);
-
-            return new ProjectStatistics(totalLinesOfCode, totalLinesOfComments, totalLinesOfEmptySpace, maxLineLength);
         }
     }
 }

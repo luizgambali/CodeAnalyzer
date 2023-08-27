@@ -166,13 +166,14 @@ namespace ToDoList.Application.Test
 
             var _calculate = new FileStatisticsCalculate(_fileStatistics.ToList());
             var _fileStatisticsResume = _calculate.CalculateFileStatistics();
-
+            var _projectStatistics = _fileStatisticsResume.GetProjectStatistics();
+            
             Assert.NotNull(_fileStatisticsResume);
 
-            Assert.Equal(projectStatistics.TotalLinesOfCode, _fileStatisticsResume.ProjectStatistics.TotalLinesOfCode);
-            Assert.Equal(projectStatistics.TotalLinesOfComments, _fileStatisticsResume.ProjectStatistics.TotalLinesOfComments);
-            Assert.Equal(projectStatistics.TotalLinesOfEmptySpace, _fileStatisticsResume.ProjectStatistics.TotalLinesOfEmptySpace);
-            Assert.Equal(projectStatistics.MaxLineLength, _fileStatisticsResume.ProjectStatistics.MaxLineLength);
+            Assert.Equal(projectStatistics.TotalLinesOfCode, _projectStatistics.TotalLinesOfCode);
+            Assert.Equal(projectStatistics.TotalLinesOfComments, _projectStatistics.TotalLinesOfComments);
+            Assert.Equal(projectStatistics.TotalLinesOfEmptySpace, _projectStatistics.TotalLinesOfEmptySpace);
+            Assert.Equal(projectStatistics.MaxLineLength, _projectStatistics.MaxLineLength);
 
         }
 

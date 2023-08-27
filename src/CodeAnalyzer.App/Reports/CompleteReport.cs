@@ -13,7 +13,7 @@ namespace CodeAnalyzer.App.Report
 
         public override void GenerateReport()
         {
-            _streamWriter.Write(ProjectResumeGridView.GenerateData(_fileStatisticsResume.ProjectStatistics));
+            _streamWriter.Write(ProjectResumeGridView.GenerateData(_fileStatisticsResume.GetProjectStatistics()));
             _streamWriter.Flush();
 
             _streamWriter.Write(FileListGridView.GenerateData(_fileStatisticsResume.FileStatistics));

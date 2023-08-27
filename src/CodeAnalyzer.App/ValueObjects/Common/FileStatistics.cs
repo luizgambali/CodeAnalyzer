@@ -31,25 +31,16 @@ namespace CodeAnalyzer.App.ValueObjects.Common
             MaxLineLength = 0;
         }
 
-        public void AddLineOfCode()
-        {
-            TotalLinesOfCode++;
-        }
-
-        public void AddLineOfCode(int lines)
+        public void AddLineOfCode() => AddLinesOfCode(1);
+        
+        public void AddLinesOfCode(int lines)
         {
             TotalLinesOfCode += lines;
         }
 
-        public void RemoveLineOfCode()
-        {
-            if (TotalLinesOfCode > 0)
-                TotalLinesOfCode--;
-            else
-                throw new InvalidOperationException("Total lines of code is already 0");    
-        }
+        public void RemoveLineOfCode() => RemoveLinesOfCode(1);
 
-        public void RemoveLineOfCode(int lines)
+        public void RemoveLinesOfCode(int lines)
         {
             if ((TotalLinesOfCode - lines) > 0)
                 TotalLinesOfCode -= lines;
@@ -57,24 +48,16 @@ namespace CodeAnalyzer.App.ValueObjects.Common
                 throw new InvalidOperationException("Total lines of code is already 0");    
         }
 
-        public void AddLineOfComment()
-        {
-            TotalLinesOfComments++;
-        }
-        public void AddLineOfComment(int lines)
+        public void AddLineOfComment() => AddLinesOfComment(1);
+
+        public void AddLinesOfComment(int lines)
         {
             TotalLinesOfComments += lines;
         }
 
-        public void RemoveLineOfComment()
-        {
-            if (TotalLinesOfComments > 0)
-                TotalLinesOfComments--;
-            else
-                throw new InvalidOperationException("Total lines of comments is already 0");    
-        }
+        public void RemoveLineOfComment() => RemoveLinesOfCode(1);
 
-        public void RemoveLineOfComment(int lines)
+        public void RemoveLinesOfComment(int lines)
         {
             if ((TotalLinesOfComments - lines) > 0)
                 TotalLinesOfComments -= lines;
@@ -82,25 +65,16 @@ namespace CodeAnalyzer.App.ValueObjects.Common
                 throw new InvalidOperationException("Total lines of comments is already 0");    
         }
 
-        public void AddLineOfEmptySpace()
-        {
-            TotalLinesOfEmptySpace++;
-        }
+        public void AddLineOfEmptySpace() => AddLinesOfEmptySpace(1);
 
-        public void AddLineOfEmptySpace(int lines)
+        public void AddLinesOfEmptySpace(int lines)
         {
             TotalLinesOfEmptySpace += lines;
         }
 
-        public void RemoveLineOfEmptySpace()
-        {
-            if (TotalLinesOfEmptySpace > 0)
-                TotalLinesOfEmptySpace--;
-            else
-                throw new InvalidOperationException("Total lines of empty spaces is already 0");            
-        }
+        public void RemoveLineOfEmptySpace() => RemoveLinesOfEmptySpace(1);
 
-        public void RemoveLineOfEmptySpace(int lines)
+        public void RemoveLinesOfEmptySpace(int lines)
         {
             if ((TotalLinesOfEmptySpace - lines) > 0)
                 TotalLinesOfEmptySpace -= lines;
