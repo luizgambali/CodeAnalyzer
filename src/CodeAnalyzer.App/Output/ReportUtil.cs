@@ -1,5 +1,3 @@
-using CodeAnalyzer.App.ValueObjects.Common;
-
 namespace CodeAnalyzer.App.Output
 {
     public class ReportUtil

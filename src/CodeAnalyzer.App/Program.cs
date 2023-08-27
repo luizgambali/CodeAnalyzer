@@ -1,8 +1,4 @@
-﻿
-using CodeAnalyzer.App.Factory;
-using CodeAnalyzer.App.Enums;
-using CodeAnalyzer.App.Report;
-using System.Text;
+﻿using CodeAnalyzer.App.Enums;
 using System.CommandLine;
 using CodeAnalyzer.App.Output;
 

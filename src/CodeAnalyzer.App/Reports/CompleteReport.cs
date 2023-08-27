@@ -1,6 +1,6 @@
 using CodeAnalyzer.App.Reports.BarView;
 using CodeAnalyzer.App.Reports.GridView;
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.Entities;
 
 namespace CodeAnalyzer.App.Report
 {

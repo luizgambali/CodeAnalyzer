@@ -1,5 +1,5 @@
 using CodeAnalyzer.App.Interfaces.Report;
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.Entities;
 using CodeAnalyzer.App.ValueObjects.Report;
 
 namespace CodeAnalyzer.App.Reports.Util

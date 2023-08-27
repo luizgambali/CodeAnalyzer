@@ -1,4 +1,4 @@
-namespace CodeAnalyzer.App.ValueObjects.Common
+namespace CodeAnalyzer.App.Entities
 {
     public class FileStatistics
     {

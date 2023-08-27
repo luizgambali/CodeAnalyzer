@@ -1,4 +1,4 @@
-using CodeAnalyzer.App.ValueObjects.Common;
+using CodeAnalyzer.App.Entities;
 
 namespace CodeAnalyzer.App.ValueObjects.Report
 {   
