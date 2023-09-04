@@ -64,7 +64,7 @@ namespace ToDoList.Application.Test
             var fake = new FakeData();
             fake.CreateValidFile("FizzBuzz.cs");
 
-            var fileResultOk = new FileStatistics(fake.GetFolderPath() + "\\FizzBuzz.cs", 16,7,4,33);
+            var fileResultOk = new FileStatistics(fake.GetFolderPath() + "\\FizzBuzz.cs", 16,7,4,37);
 
             var analyzer = AnalyzerFactory.CreateAnalyzer(Language.CSharp);
             var result = analyzer.Analyze(fake.GetFolderPath());

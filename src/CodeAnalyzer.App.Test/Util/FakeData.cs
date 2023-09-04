@@ -1,13 +1,78 @@
 using System;
+using System.Runtime.InteropServices.Marshalling;
 using System.Text;
 using CodeAnalyzer.App.Entities;
 
 namespace CodeAnalyzer.App.Test
 {
+
+    public class ValidFile
+    {
+        public static int TotalLinesOfCode = 16;
+        public static int TotalLinesOfComments = 7;
+        public static int TotalLinesOfEmptySpace = 4;
+        public static int MaxLineLength = 37;
+
+        public static string GetFileCode(){
+
+            var fileContent = new StringBuilder();
+
+            fileContent.AppendLine("/*");
+            fileContent.AppendLine("Este é um arquivo válido, que contém comentários, espaços em branco e linhas de código");
+            fileContent.AppendLine("*/");
+            fileContent.AppendLine("namespace MockTest.File");
+            fileContent.AppendLine("{");
+            fileContent.AppendLine("    public class TestFile");
+            fileContent.AppendLine("    {");
+            fileContent.AppendLine("");
+            fileContent.AppendLine("        public string FizzBuzz(int value)");
+            fileContent.AppendLine("        {");
+            fileContent.AppendLine("            //se for divisivel por 3 e 5 retorna FizzBuzz");
+            fileContent.AppendLine("            if (value % 3 == 0 && value % 5 == 0)");
+            fileContent.AppendLine("                return \"FizzBuzz\";");
+            fileContent.AppendLine("");
+            fileContent.AppendLine("            //se for divisivel por 3 retorna Fizz");
+            fileContent.AppendLine("            if (value % 3 == 0)");
+            fileContent.AppendLine("                return \"Fizz\";");
+            fileContent.AppendLine("");
+            fileContent.AppendLine("            //se for divisivel por 5 retorna Buzz");
+            fileContent.AppendLine("            if (value % 5 == 0)");
+            fileContent.AppendLine("                return \"Buzz\";");
+            fileContent.AppendLine("");
+            fileContent.AppendLine("            return value.ToString();");
+            fileContent.AppendLine("        }");
+            fileContent.AppendLine("    }");
+            fileContent.AppendLine("}");
+            fileContent.AppendLine("/* este é mais um comentário, de uma unica linha*/");
+
+            return fileContent.ToString();
+        }
+    }
+
+    public class CommentedFile
+    {
+        public static int TotalLinesOfCode = 0;
+        public static int TotalLinesOfComments = 3;
+        public static int TotalLinesOfEmptySpace = 0;
+        public static int MaxLineLength = 0;
+
+        public static string GetFileCode()
+        {
+            var fileContent = new StringBuilder();
+
+            fileContent.AppendLine("/*");
+            fileContent.AppendLine(" Este é um arquivo totalmente comentado!");
+            fileContent.AppendLine("*/");
+
+            return fileContent.ToString();
+        }
+    }
+
     public class FakeData: IDisposable
     {
         private readonly string _folderPath;
         private readonly string slash;
+
         public FakeData()
         {
             slash = Environment.OSVersion.Platform == PlatformID.Win32NT ? "\\" : "/";
@@ -51,15 +116,12 @@ namespace CodeAnalyzer.App.Test
 
         public FileStatistics CreateCommentedFile(string fileName)
         {
-            var fileContent = new StringBuilder();
+            CreateFile(fileName, CommentedFile.GetFileCode());
 
-            fileContent.AppendLine("/*");
-            fileContent.AppendLine(" Este é um arquivo totalmente comentado!");
-            fileContent.AppendLine("*/");
-            
-            CreateFile(fileName, fileContent.ToString());
-
-            var fs = new FileStatistics(_folderPath + fileName,0,3,0,0);
+            var fs = new FileStatistics(_folderPath + fileName,CommentedFile.TotalLinesOfCode,
+                                                               CommentedFile.TotalLinesOfComments,
+                                                               CommentedFile.TotalLinesOfEmptySpace,
+                                                               CommentedFile.MaxLineLength);
 
             return fs;
         }
@@ -82,38 +144,12 @@ namespace CodeAnalyzer.App.Test
 
         public FileStatistics CreateValidFile(string fileName)
         {
-            var fileContent = new StringBuilder();
-            fileContent.AppendLine("/*");
-            fileContent.AppendLine("Este é um arquivo válido, que contém comentários, espaços em branco e linhas de código");
-            fileContent.AppendLine("*/");
-            fileContent.AppendLine("namespace MockTest.File");
-            fileContent.AppendLine("{");
-            fileContent.AppendLine("    public class TestFile");
-            fileContent.AppendLine("    {");
-            fileContent.AppendLine("");
-            fileContent.AppendLine("        public string FizzBuzz(int value)");
-            fileContent.AppendLine("        {");
-            fileContent.AppendLine("            //se for divisivel por 3 e 5 retorna FizzBuzz");
-            fileContent.AppendLine("            if (value % 15 == 0)");
-            fileContent.AppendLine("                return \"FizzBuzz\";");
-            fileContent.AppendLine("");
-            fileContent.AppendLine("            //se for divisivel por 3 retorna Fizz");
-            fileContent.AppendLine("            if (value % 3 == 0)");
-            fileContent.AppendLine("                return \"Fizz\";");
-            fileContent.AppendLine("");
-            fileContent.AppendLine("            //se for divisivel por 5 retorna Buzz");
-            fileContent.AppendLine("            if (value % 5 == 0)");
-            fileContent.AppendLine("                return \"Buzz\";");
-            fileContent.AppendLine("");
-            fileContent.AppendLine("            return value.ToString();");
-            fileContent.AppendLine("        }");
-            fileContent.AppendLine("    }");
-            fileContent.AppendLine("}");
-            fileContent.AppendLine("/* este é mais um comentário, de uma unica linha*/");
+            CreateFile(fileName, ValidFile.GetFileCode());
 
-            CreateFile(fileName, fileContent.ToString());
-
-            var fs = new FileStatistics(_folderPath + fileName, 16,7,4,33);
+            var fs = new FileStatistics(_folderPath + fileName, ValidFile.TotalLinesOfCode,
+                                                                ValidFile.TotalLinesOfComments,
+                                                                ValidFile.TotalLinesOfEmptySpace,
+                                                                ValidFile.MaxLineLength);
             
             return fs;
         }
