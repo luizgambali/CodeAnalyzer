@@ -77,8 +77,11 @@ namespace CodeAnalyzer.App.Test
         {
             slash = Environment.OSVersion.Platform == PlatformID.Win32NT ? "\\" : "/";
             
-            _folderPath = $"{Environment.SpecialFolder.UserProfile}{slash}CodeAnalyzerTestFolder{slash}{Guid.NewGuid()}{slash}";
-
+            if (Environment.OSVersion.Platform == PlatformID.Win32NT)
+                _folderPath = $"{Environment.SpecialFolder.UserProfile}{slash}CodeAnalyzerTestFolder{slash}{Guid.NewGuid()}{slash}";
+            else
+                _folderPath = $"{Environment.GetFolderPath(Environment.SpecialFolder.UserProfile)}{slash}CodeAnalyzerTestFolder{slash}{Guid.NewGuid()}{slash}";
+                
             ClearFolder();
 
             CreateFolder(_folderPath);
