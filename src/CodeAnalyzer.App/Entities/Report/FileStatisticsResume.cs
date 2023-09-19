@@ -1,6 +1,6 @@
 using CodeAnalyzer.App.Entities;
 
-namespace CodeAnalyzer.App.ValueObjects.Report
+namespace CodeAnalyzer.App.Entities.Report
 {   
     public class FileStatisticsResume
     {

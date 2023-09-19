@@ -1,5 +1,5 @@
 using System.Text;
-using CodeAnalyzer.App.ValueObjects.Report;
+using CodeAnalyzer.App.Entities.Report;
 
 namespace CodeAnalyzer.App.Reports.BarView
 {

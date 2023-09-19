@@ -3,7 +3,7 @@ using CodeAnalyzer.App.Factory;
 using CodeAnalyzer.App.Reports.Util;
 using CodeAnalyzer.App.Test;
 using CodeAnalyzer.App.Entities;
-using CodeAnalyzer.App.ValueObjects.Report;
+using CodeAnalyzer.App.Entities.Report;
 
 namespace ToDoList.Application.Test
 {
